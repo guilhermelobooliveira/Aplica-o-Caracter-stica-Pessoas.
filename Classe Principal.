@@ -1,0 +1,54 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package provaprática;
+
+import javax.swing.JOptionPane;
+
+/**
+ *
+ * @author HT3000869
+ */
+public class ProvaPrática {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic
+        String sexo[] = new String[9];
+        double altura[] = new double[9];
+        double alturamedia = 0;
+        double maioraltura = 0;
+        double alturamediaHomens = 0;
+        double alturamediaMulheres = 0;
+        int contadorHomens = 0;
+        int contadorMulheres = 0;
+        
+        for(int i = 0; i < 10; i++){
+            sexo[i] = JOptionPane.showInputDialog(null, " Qual o seu Sexo?, querido Usuário? " + (i+1) + "º Pessoa");
+            altura[i] = Double.parseDouble(JOptionPane.showInputDialog(null, " Qual a sua Altura, querido Usuário? " + (i+1) + "º Pessoa"));
+            alturamedia = alturamedia + altura[i];
+        
+            if(altura[i] > maioraltura){
+                maioraltura = altura[i];
+            }
+            if(sexo[i] == " Masculino "){
+                alturamediaHomens = alturamediaHomens + altura[i];
+                contadorHomens++;
+            } else if(sexo[i] == " Feminino " ){
+                alturamediaMulheres = alturamediaMulheres + altura[i];
+                contadorMulheres++;
+            }
+        }
+            System.out.println(" A Altura Média das 9 Pessoas: " + (alturamedia)/9);
+            System.out.println(" A Maior Altura: " + maioraltura);
+            System.out.println(" A Altura Média das Mulheres: " + ((alturamediaMulheres)/contadorMulheres));
+            System.out.println(" A Altura Média dos Homens: " + ((alturamediaHomens)/contadorHomens));
+            System.out.println(" A Quantidade de Homens são: " + contadorHomens);
+            System.out.println(" A Quantidade de Mulheres são: " + contadorMulheres);
+            System.out.println(" Muito Obrigado por Utilizar o Programa de Guilherme Lobo de Oliveira, querido Usuário! ");
+    }    
+}
